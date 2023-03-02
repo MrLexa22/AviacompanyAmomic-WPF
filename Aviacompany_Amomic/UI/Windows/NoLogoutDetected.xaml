@@ -1,0 +1,32 @@
+﻿<Window x:Class="Aviacompany_Amomic.UI.Windows.NoLogoutDetected"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aviacompany_Amomic.UI.Windows"
+        mc:Ignorable="d"
+        Title="No logout detected" Name="no_logout_detected" Closing="no_logout_detected_Closing" Height="400" Width="550" ResizeMode="NoResize">
+    <Grid>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Style="{StaticResource TextBlockMain}" FontSize="16" HorizontalAlignment="Left">No logout detected for your last login on <Run Name="Date_last_login">09.02.2222</Run> at <Run Name="Time_last_login">08:22</Run></TextBlock>
+            <TextBlock Grid.Row="1" Style="{StaticResource TextBlockMain}" FontSize="16" HorizontalAlignment="Left">Reason:</TextBlock>
+            <TextBox Grid.Row="2" BorderBrush="#196AA6" MaxLength="150" MaxLines="3" FontSize="16" Margin="15" Style="{StaticResource TextBoxMain}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Name="tb_reason"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <RadioButton Checked="rb_Checked" x:Name="rb_softcrash" VerticalAlignment="Top" FontSize="16" FontFamily="TeX Gyre Adventor" Margin="0 20 0 0" GroupName="Reason">Software Crash</RadioButton>
+                <RadioButton Checked="rb_Checked" x:Name="rb_syscrash" VerticalAlignment="Top" FontSize="16" Grid.Column="1" FontFamily="TeX Gyre Adventor" Margin="0 20 0 0" GroupName="Reason">System Crash</RadioButton>
+                <Button x:Name="btn_confirm" Grid.Column="2" Style="{StaticResource ButtonMain}" Background="#196AA6" Foreground="White" BorderBrush="{x:Null}" FontSize="16" Height="30" Width="120" Content="Confirm" Click="btn_confirm_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

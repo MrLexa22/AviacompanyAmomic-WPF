@@ -1,0 +1,89 @@
+﻿<Page x:Class="Aviacompany_Amomic.UI.UserControls.Administrator.AdministratorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Aviacompany_Amomic.UI.UserControls.Administrator"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdministratorPage" Name="page_administrator">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Background="#196AA6" Foreground="White" BorderBrush="{x:Null}" Height="30" Width="100" Style="{StaticResource ButtonMain}" x:Name="btn_add_user" Margin="20 0 30 0" Click="btn_add_user_Click">Add user</Button>
+            <Button Background="#F79420" Foreground="White" BorderBrush="{x:Null}" Height="30" Width="70" Style="{StaticResource ButtonMain}" x:Name="btn_exit" Click="btn_exit_Click">Exit</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="20 0 0 0">
+            <TextBlock Style="{StaticResource TextBlockMain}">Office:</TextBlock>
+            <ComboBox SelectionChanged="cb_offices_SelectionChanged" Name="cb_offices" SelectedValuePath="ID" SelectedValue="{Binding ID}"  Width="150" Margin="10 0 0 0" DisplayMemberPath="Title" Height="30" FontFamily="TeX Gyre Adventor" FontSize="18"></ComboBox>
+        </StackPanel>
+        <DataGrid Margin="20 0 20 0" SelectionChanged="datagrid_users_SelectionChanged" SelectedValuePath="ID" SelectedValue="{Binding ID}" x:Name="datagrid_users" CanUserDeleteRows="False" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" Grid.Row="2">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ColorRow}" Value="State1">
+                            <Setter Property="Background" Value="Red"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ColorRow}" Value="State2">
+                            <Setter Property="Background" Value="GreenYellow"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Name" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource TextBlockMain}" FontSize="14" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FirstName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Last Name" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource TextBlockMain}" FontSize="14" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding LastName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Age" Width="0.5*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource TextBlockMain}" FontSize="14" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Age}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="User role" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource TextBlockMain}" FontSize="14" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding UserRole}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Email Address" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource TextBlockMain}" FontSize="12" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Email}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Office" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource TextBlockMain}" FontSize="14" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Office}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <Button IsEnabled="False" x:Name="btn_change_role" Background="#196AA6" Foreground="White" BorderBrush="{x:Null}" Height="30" Width="150" Style="{StaticResource ButtonMain}" Margin="20 0 30 0" Click="btn_change_role_Click">Change Role</Button>
+            <Button IsEnabled="False" Click="btn_enable_disbale_login_Click" x:Name="btn_enable_disbale_login" Background="Red" Foreground="White" BorderBrush="{x:Null}" Height="30" Width="220" Style="{StaticResource ButtonMain}">Enable/Disable Login</Button>
+        </StackPanel>
+    </Grid>
+</Page>

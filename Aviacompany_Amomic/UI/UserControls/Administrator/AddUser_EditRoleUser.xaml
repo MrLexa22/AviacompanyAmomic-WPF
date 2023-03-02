@@ -1,0 +1,63 @@
+﻿<Window x:Class="Aviacompany_Amomic.UI.UserControls.Administrator.AddUser_EditRoleUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aviacompany_Amomic.UI.UserControls.Administrator"
+        mc:Ignorable="d"
+        Title="Add user" ResizeMode="NoResize" Height="400" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="100" TextAlignment="Right" FontSize="14" Margin="20 0 20 0" Style="{StaticResource TextBlockMain}">Email address</TextBlock>
+            <TextBox x:Name="tb_email" Height="25" Style="{StaticResource TextBoxMain}" FontSize="14" Width="170" VerticalAlignment="Center"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Width="100" TextAlignment="Right" FontSize="14" Margin="20 0 20 0" Style="{StaticResource TextBlockMain}">First Name</TextBlock>
+            <TextBox x:Name="tb_firstname" Height="25" Style="{StaticResource TextBoxMain}" FontSize="14" Width="170" VerticalAlignment="Center"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Width="100" TextAlignment="Right" FontSize="14" Margin="20 0 20 0" Style="{StaticResource TextBlockMain}">Last Name</TextBlock>
+            <TextBox x:Name="tb_lastname" Height="25" Style="{StaticResource TextBoxMain}" FontSize="14" Width="170" VerticalAlignment="Center"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <TextBlock Width="100" TextAlignment="Right" FontSize="14" Margin="20 0 20 0" Style="{StaticResource TextBlockMain}">Office</TextBlock>
+            <ComboBox Name="cb_offices" SelectedValuePath="ID" SelectedValue="{Binding ID}"  Width="170" DisplayMemberPath="Title" Height="25" FontFamily="TeX Gyre Adventor" FontSize="14"></ComboBox>
+        </StackPanel>
+        <Grid Grid.Row="4" Grid.RowSpan="2" Name="grid_addUser" Visibility="Hidden">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="100" TextAlignment="Right" FontSize="14" Margin="20 0 20 0" Style="{StaticResource TextBlockMain}">Birthday</TextBlock>
+                    <DatePicker Name="dp_dateBirthday" FontFamily="TeX Gyre Adventor" FontSize="14" Width="170" VerticalAlignment="Center" Height="25"></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 28 0 0">
+                    <TextBlock Width="100" TextAlignment="Right" FontSize="14" Margin="20 0 20 0" Style="{StaticResource TextBlockMain}">Password</TextBlock>
+                    <PasswordBox Name="pb_password" Width="170" Height="25" FontFamily="TeX Gyre Adventor" FontSize="14"></PasswordBox>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="4" Grid.RowSpan="2" Name="grid_editRole" Visibility="Hidden">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="100" TextAlignment="Right" FontSize="14" Margin="20 0 20 0" Style="{StaticResource TextBlockMain}">Role</TextBlock>
+                    <StackPanel Orientation="Vertical">
+                        <RadioButton GroupName="role" x:Name="rb_user" Margin="0 0 0 20">User</RadioButton>
+                        <RadioButton GroupName="role" x:Name="rb_admin">Administartor</RadioButton>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btn_save" Width="80" FontSize="14" Style="{StaticResource ButtonMain}" Margin="0 0 30 0" Height="25" BorderBrush="{x:Null}" Background="#196AA6" Foreground="White" Click="btn_save_Click">Save</Button>
+            <Button x:Name="btn_cance" Width="80" FontSize="14" Style="{StaticResource ButtonMain}" Height="25" Background="Red" Foreground="White" BorderBrush="{x:Null}" Click="btn_cance_Click">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>
